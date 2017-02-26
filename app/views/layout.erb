@@ -1,243 +1,149 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>chloe's site</title>
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
-  <style>
-  body {
-  	 font-size: 20px;
-  	 font-family: "Open Sans Condensed";
-  	 font-style: normal;
-  	 font-weight: 300;
-     background-color:#F2F1EC;
-     padding: 0;
-     margin: 0;
-  }
-  div.content {
-    margin-top: 200px
-  }
-  ul {
-    margin: 0px;
-    padding: 0px;
-  }
-  ul.themeBox{
-    position:fixed;
-    width:100%;
-    top:0px;
-  }
-  h2 {
-    margin-left:20%;
-    margin-right:20%;
-    margin-top:200px;
-    text-align: right;
-    font-size: 15px;
-    color:#F4BFAB;
-  }
-  h1 {
-    margin-left:20%;
-    margin-right:20%;
-    color:#5A7180;
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Chloe.host</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
 
-  }
-  nav {
-    margin-left:20%;
-    margin-right:20%;
-  }
-  form {
-    margin-left:20%;
-    margin-right:20%;
-  }
-  div#quotes {
-    margin-left:20%;
-    margin-right:20%;
-    height:200px;
-    overflow:scroll;
-    border:5px solid #EAE1DA;
-    padding:15px;
-  }
-  div.quote p {
-    color:#959EAF;
-  }
-  div.quote cite {
-    color:#F4BFAB;
-    display: block
-  }
-  div#pictures {
-    margin-left:20%;
-    margin-right:20%;
-    margin-top:20px;
-  }
-  div#pictures img{
-    width: 200px;
-    height: 150px;
-    margin-right: 9.5%;
-    cursor:pointer;
-  }
-    div#pictures img:last-child{
-      margin-right: 0%;
-    }
+        <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
+        <link rel="stylesheet" href="/stylesheets/main.css">
 
-    /* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-}
+        <!--[if lt IE 9]>
+            <script src="/js/vendor/html5shiv.min.js"></script>
+        <![endif]-->
 
-/* Modal Content (Image) */
-.modal-content {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-}
+        <script src="/javascripts/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js"></script>
+    </head>
+    <body>
 
-/* Caption of Modal Image (Image Text) - Same Width as the Image */
-#caption {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    text-align: center;
-    color: #ccc;
-    padding: 10px 0;
-    height: 150px;
-}
+        <main class="container left-container">
+            <div class="row">
 
-/* Add Animation - Zoom in the Modal */
-.modal-content, #caption {
-    -webkit-animation-name: zoom;
-    -webkit-animation-duration: 0.6s;
-    animation-name: zoom;
-    animation-duration: 0.6s;
-}
+                <div id="menu-target">
+                    <ul>
+                        <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
 
-@-webkit-keyframes zoom {
-    from {-webkit-transform:scale(0)}
-    to {-webkit-transform:scale(1)}
-}
+                    </ul>
+                    <hr>
+                    <ul>
+                        <li><i class="fa fa-file"></i><a href="/posts/new">New Post</a></li>
+                    </ul>
+                </div>
 
-@keyframes zoom {
-    from {transform:scale(0)}
-    to {transform:scale(1)}
-}
+                <section class="sidebar col-md-5 col-sm-12" style="background-image: url(/images/sidebars/sunset.jpg">
 
-/* The Close Button */
-.close {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-}
+                    <span class="menu-trigger animated fadeInDown">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </span>
 
-.close:hover,
-.close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
-}
+                    <div class="site-info">
+                        <div class="primary-info">
+                            <h1>chloe.host</h1>
+                            <p>aspiring programmer</p>
+                        </div>
 
-/* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px){
-    .modal-content {
-        width: 100%;
-    }
-}
-  </style>
+                    </div>
+                </section><!-- end sidebar -->
 
-</head>
-<ul class="themeBox">
-  <li title="#F4BFAB" style="background: #F4BFAB"></li>
-  <li title="#959EAF" style="background: #959EAF"></li>
-  <li title="#5A7180" style="background: #5A7180"></li>
-  <li title="#F2F1EC" style="background: #F2F1EC"></li>
-  <li title="#EAE1DA" style="background: #EAE1DA"></li>
-  <li>
-    <nav>
-      <a href="/">Home</a>
-      |
-      <a href="/quotes/new">New Quote</a>
-    </nav>
-  </li>
-</ul>
+                <section class="col-md-7 col-sm-12 col-md-offset-5 main-content">
+
+                    <div class="sub-nav">
+                        <a href="#" class="select-posts active">Projects</a>
+                        <a href="#" class="select-categories">Gallery</a>
+                    </div>
+
+                    <div class="home-page-posts animated fadeIn ">
+
+                        <article class="post">
+                            <div class="post-preview col-xs-10  no-gutter">
+                                <h2><a href="http://kodewithklossy.com/datingsymbol">DATING SYMBOL QUIZ</a></h2>
+
+                                <p>I helped my friend Karlie with a quiz for Valentine's Day 2017 where you find out which dating symbol you are by answering a series of personality questions. </p>
+
+                                <p class="meta">
+                                    <strong>Technologies:</strong>HTML, CSS, Javascript
+                                </p>
+                            </div>
 
 
-<body>
-  <%= yield %>
+                        </article>
+
+                        <article class="post">
+                            <div class="post-preview col-xs-10 no-gutter">
+                                <h2><a href="/give-a-dog-a-bone/">GIVE A DOG A BONE: JAVASCRIPT GAME</a></h2>
+                                <p>I built a simple game where 2 players compete to find a hidden bone first.</p>
+
+                                <p class="meta">
+                                  <strong>Technologies:</strong>HTML, CSS, Javascript
+                                </p>
+                            </div>
 
 
-</body>
+                        </article>
 
-<script>
-function updateTime() {
-  var date = new Date();
-  var options = {
-      weekday: "long", month: "short",
-      day: "numeric", hour: "2-digit", minute: "2-digit", second: "2-digit"
-  };
+                    </div><!-- Home page posts -->
 
-  document.getElementById("date").innerHTML = date.toLocaleTimeString("en-us", options)
+                    <div class="home-page-categories hide animated fadeIn ">
+                        <div class="category row">
+                            <section>
+                                <div class="category-preview col-xs-6 col-sm-4 ">
+                                    <h2></h2>
+                                    <a href="category.html"><img src="/images/gallery/1.png" alt="category-image"></a>
+                                </div>
 
+                                <div class="category-preview col-xs-6 col-sm-4 ">
+                                    <h2></h2>
+                                    <a href="category.html"><img src="/images/gallery/2.png" alt="category-image"></a>
+                                </div>
 
-  // Output:
-  // ‎2‎/‎1‎/‎2013
-  // ‎Friday‎, ‎Feb‎ ‎1‎, ‎2013‎ ‎06‎:‎00‎ ‎AM
-  // ‎2013‎年‎2‎月‎1‎日‎
-  // ‎2013‎年‎2‎月‎1‎日 ‎金曜日‎ ‎06‎:‎00
+                                <div class="category-preview col-xs-6 col-sm-4 ">
+                                    <h2></h2>
+                                    <a href="category.html"><img src="/images/gallery/3.png" alt="category-image"></a>
+                                </div>
 
+                                <div class="category-preview col-xs-6 col-sm-4 ">
+                                    <h2></h2>
+                                     <a href="category.html"><img src="/images/gallery/4.png" alt="category-image"></a>
+                                </div>
 
+                                <div class="category-preview col-xs-6 col-sm-4 ">
+                                    <h2></h2>
+                                    <a href="category.html"><img src="/images/gallery/5.png" alt="category-image" ></a>
+                                </div>
 
-}
-setInterval(updateTime,1000);
-// Get the modal
-var modal = document.getElementById('myModal');
+                                <div class="category-preview col-xs-6 col-sm-4 ">
+                                    <h2></h2>
+                                     <a href="category.html"><img src="/images/gallery/6.png" alt="category-image"></a>
+                                </div>
 
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-var images = document.querySelectorAll("div#pictures img")
+                            
+                            </section>
+                        </div>
+                    </div>
+                    <footer class="split-footer">
 
-for (var image of images) {
-  image.onclick = function(){
-      modal.style.display = "block";
-      modalImg.src = this.src;
-      captionText.innerHTML = this.alt;
-  }
-}
+                        <i class="link-spacer"></i>
 
+                    </footer>
 
-var modalImg = document.getElementById("img01");
-var captionText = document.getElementById("caption");
+                </section><!-- main content -->
 
+            </div> <!--/row -->
 
+        </main> <!-- /container -->
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
+        <script src="/javascripts/vendor/jquery.jpanelmenu.min.js"></script>
+        <script src="/javascripts/vendor/bootstrap.min.js"></script>
+        <script src="/javascripts/vendor/fastclick.min.js"></script>
 
-</script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-90658371-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
+        <script src="/javascripts/main.js"></script>
+    </body>
 </html>
