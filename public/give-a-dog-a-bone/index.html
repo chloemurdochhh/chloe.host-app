@@ -1,0 +1,400 @@
+<style>
+@font-face {
+  font-family: 'Digital7';
+  font-style: normal;
+  font-weight: normal;
+  src: url('digital-7.ttf')
+}
+body {
+  font-family: Helvetica;
+}
+#dog2score {
+  font-size:40px;
+  font-family:'Digital7';
+  margin-left: 85%;
+  width: 100px;
+  position: fixed;
+}
+#dog1score {
+  font-size:40px;
+  font-family:'Digital7';
+  margin-left: 10%;
+  width: 100px;
+  position: fixed;
+}
+.donation-meter#dog2Meter {
+  margin-left: 90%;
+  width: 100px;
+  position: fixed;
+}
+.donation-meter#dog1Meter {
+  margin-left: 0%;
+  width: 100px;
+  position: fixed;
+}
+.donation-meter .glass {
+  background: #e5e5e5;
+  border-radius: 100px 100px 0 0;
+  display: block;
+  height: 150px;
+  margin: 0 35px 10px;
+  padding: 5px;
+  position: relative;
+  width: 20px;
+}
+.donation-meter .amount {
+  background: #f34e54;
+  border-radius: 100px;
+  display: block;
+  width: 20px;
+  position: absolute;
+  bottom: 5px;
+}
+.donation-meter strong {
+  display: block;
+  text-align: center;
+}
+.donation-meter .goal {
+  font-size: 30px;
+}
+.donation-meter .total {
+  fonat-size: 16px;
+  position: absolute;
+  right: 35px;
+}
+
+.bulb {
+  background: #e5e5e5;
+  border-radius: 100px;
+  display: block;
+  height: 50px;
+  margin: 0 35px 10px;
+  padding: 5px;
+  position: relative;
+  top: -20px;
+  right: 15px;
+  width: 50px;
+}
+.bulb .red-circle {
+  background: #f34e54;
+  border-radius: 100px;
+  display: block;
+  height: 50px;
+  width: 50px;
+}
+.bulb .filler {
+  background: #f34e54;
+  border-radius: 100px 100px 0 0;
+  display: block;
+  height: 30px;
+  width: 20px;
+  position: relative;
+  top: -65px;
+  right: -15px;
+  z-index: 30;
+}
+
+  body {
+
+      background: url(grass.jpg) no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+
+
+}
+
+  img#dog1{
+    width: 70px;
+    top: 380px;
+    position: fixed;
+
+  }
+  img#bone{
+    width: 70px;
+    top: 380px;
+    position: fixed;
+    left: 50%;
+    opacity: 1;
+    display: none;
+  }
+  img#dog2{
+    width: 130px;
+    top: 380px;
+    position: fixed;
+    right:0;
+  }
+  img.active{
+    border: 1px solid red;
+  }
+  #instructions{
+    width: 400px;
+    top: 200px;
+    background: #FFF;
+    padding: 10px;
+    position: absolute;
+    left: 30%;
+  }
+</style>
+
+<body>
+  <div class="donation-meter" id="dog1Meter">
+    <span class="glass">
+        <strong class="total" style="bottom: 90%"></strong>
+        <span class="amount" style="height: 0%"></span>
+    </span>
+    <div class="bulb">
+        <span class="red-circle"></span>
+        <span class="filler">
+            <span></span>
+        </span>
+    </div>
+  </div>
+
+  <div class="donation-meter" id="dog2Meter">
+    <span class="glass">
+        <strong class="total" style="bottom: 90%"></strong>
+        <span class="amount" style="height: 0%"></span>
+    </span>
+    <div class="bulb">
+        <span class="red-circle"></span>
+        <span class="filler">
+            <span></span>
+        </span>
+    </div>
+  </div>
+
+<p>
+  <div id="dog1score">
+    000
+  </div>
+  <div id="dog2score">
+    000
+  </div>
+  <img src="dog.png" id="dog1">
+  <img src="dog2.png" id="dog2">
+  <img src="bone.png" id="bone">
+</p>
+
+<div id="instructions">
+  <h2> Give a Dog a Bone
+  </h2>
+  <p> Use the controls to search the grass and try to find the hidden bone. As you get closer or farther, the thermometer will show you how warm or cold you are to finding the bone.
+  </p>
+  <p> player 1: you are the dog on the left and you move with A - W - D - S
+  </p>
+  <p> player 2: you are the dog on the right and you move with J - I - L - K
+  </p>
+  <a href="#" class="start">Start the Game Now!</a>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+<script>
+  // var activeDog = 'img#dog1';
+
+  // jQuery('img#dog1').click(function(event){
+  //   activeDog = "img#dog1"
+  //   jQuery('img#dog1').addClass("active")
+  //   jQuery('img#dog2').removeClass("active")
+  // })
+  //
+  // jQuery('img#dog2').click(function(event){
+  //   activeDog = "img#dog2"
+  //   jQuery('img#dog2').addClass("active")
+  //   jQuery('img#dog1').removeClass("active")
+  // })
+  function getRandom(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
+var dogDistances = {
+  dog1: 0,
+  dog2: 0
+}
+
+  $(function(){
+    windowHeight = $(window).height()
+    windowWidth = $(window).width()
+    randomWidth = getRandom(100, windowWidth-100)
+    randomHeight = getRandom(100, windowHeight-100)
+    $("img#bone").css({left: randomWidth, top: randomHeight})
+    $("a.start").on("click", function(){
+      $("#instructions").hide()
+    })
+  })
+
+  jQuery(window).keydown(function(event){
+var selectDog;
+    console.log(event.keyCode)
+    if (event.keyCode == 65 ){
+      selectDog = "dog1"
+      jQuery('img#dog1').animate({
+        left: "-=10"
+      })
+    } else if (event.keyCode == 68 ){
+      selectDog = "dog1"
+      jQuery('img#dog1').animate({
+        left: "+=10"
+      })
+    } else if (event.keyCode == 83 ){
+      selectDog = "dog1"
+      jQuery('img#dog1').animate({
+        top: "+=10"
+      })
+    } else if (event.keyCode == 87 ){
+      selectDog = "dog1"
+        jQuery('img#dog1').animate({
+          top: "-=10"
+        })
+    } else if (event.keyCode == 74 ){
+      selectDog = "dog2"
+      jQuery('img#dog2').animate({
+        left: "-=10"
+      })
+    } else if (event.keyCode == 76 ){
+      selectDog = "dog2"
+      jQuery('img#dog2').animate({
+        left: "+=10"
+      })
+    } else if (event.keyCode == 75 ){
+      selectDog = "dog2"
+      jQuery('img#dog2').animate({
+        top: "+=10"
+      })
+    } else if (event.keyCode == 73 ){
+      selectDog = "dog2"
+        jQuery('img#dog2').animate({
+          top: "-=10"
+        })
+    }
+    checkCollisions(selectDog)
+    setTimeout(function(){
+      checkDistance(selectDog)
+    }, 500);
+  })
+
+  // jQuery(window).keydown(function(event){
+  //   console.log(event.keyCode)
+  //
+  //
+  //
+  //   checkCollisions('dog2')
+  //   setTimeout(function(){
+  //     checkdog2Distance()
+  //   }, 500);
+  // })
+
+  function checkDistance(dog){
+      console.log("check distance")
+
+      var dogPosition = $("img#"+ dog).offset()
+      var dogX = dogPosition.left
+      var dogY = dogPosition.top
+
+      var bonePosition = $("img#bone").offset()
+      var boneX = bonePosition.left
+      var boneY = bonePosition.top
+
+      var width = Math.abs(dogX - boneX)
+      var height = Math.abs(dogY - boneY)
+
+      var distance = Math.sqrt((width * width) + (height * height))
+
+      if (dogDistances[dog]== 0){
+        dogDistances[dog] = distance
+      }
+
+      var closerBy = 100*(Math.abs(dogDistances[dog] - distance)/ distance)
+
+      if (dogDistances[dog] > distance){
+        console.log("CLOSER", {old: dogDistances[dog], new: distance, closerBy: closerBy})
+
+        jQuery('#'+dog+'Meter span.amount').animate({
+          height: "+="+closerBy
+        })
+      } else {
+        console.log("Farther",  {old: dogDistances[dog], new: distance, closerBy: closerBy})
+        jQuery('#'+dog+'Meter span.amount').animate({
+        height: "-="+closerBy
+        })
+      }
+      dogDistances[dog] = distance;
+  }
+
+  function checkdog2Distance(){
+      console.log("check distance")
+
+      var dog2Position = $("img#dog2").offset()
+      var dog2X = dog2Position.left
+      var dog2Y = dog2Position.top
+
+      var bonePosition = $("img#bone").offset()
+      var boneX = bonePosition.left
+      var boneY = bonePosition.top
+
+      var width = Math.abs(dog2X - boneX)
+      var height = Math.abs(dog2Y - boneY)
+
+      var distance = Math.sqrt((width * width) + (height * height))
+
+      if (oldDistanceDog2 == 0){
+        oldDistanceDog2 = distance
+      }
+
+      var closerBy = 100*(Math.abs(oldDistanceDog2 - distance)/ distance)
+
+      if (oldDistanceDog2 > distance){
+        console.log("CLOSER", {old: oldDistanceDog2, new: distance, closerBy: closerBy})
+
+        jQuery('#dog2Meter span.amount').animate({
+          height: "+="+closerBy
+        })
+      } else {
+        console.log("Farther",  {old: oldDistanceDog2, new: distance, closerBy: closerBy})
+        jQuery('#dog2Meter span.amount').animate({
+        height: "-="+closerBy
+        })
+      }
+      oldDistanceDog2 = distance;
+  }
+
+  function getPositions(box) {
+    console.log(box)
+    var $box = $(box);
+    var pos = $box.position();
+    var width = $box.width();
+    var height = $box.height();
+    return [ [ pos.left, pos.left + width ], [ pos.top, pos.top + height ] ];
+  }
+
+  function comparePositions(p1, p2) {
+    var x1 = p1[0] < p2[0] ? p1 : p2;
+    var x2 = p1[0] < p2[0] ? p2 : p1;
+    return x1[1] > x2[0] || x1[0] === x2[0] ? true : false;
+  }
+
+  function checkCollisions(dogSelector){
+    var box = $("img#bone")[0];
+    var pos = getPositions(box);
+    var dog1 = $("img#"+dogSelector)[0];
+    console.log(dogSelector)
+    var pos2 = getPositions(dog1);
+    var horizontalMatch = comparePositions(pos[0], pos2[0]);
+    var verticalMatch = comparePositions(pos[1], pos2[1]);
+    var match = horizontalMatch && verticalMatch;
+    if (match) {
+      dogSelector // "dog1" or "dog2"
+      // You want to select the element dog1score or dog2score and change it's html to 100
+      $("#" + dogSelector + "score").html("100")
+      console.log("Collision")
+      //alert("Dog "+ dogSelector +" has won!!")
+      $("img#bone").css({opacity: 1})
+    }
+  }
+
+</script>
+
+
+</body>

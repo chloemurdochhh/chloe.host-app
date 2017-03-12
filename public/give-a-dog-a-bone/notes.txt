@@ -1,0 +1,6 @@
+stop it from moving off the screen to the very bottom
+put a bone on the grass
+multiple dog options with multiple players
+
+
+when the dog moves to the bone gain ten points
